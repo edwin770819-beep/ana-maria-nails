@@ -52,7 +52,7 @@ npm run dev                  # abre http://localhost:3000
 ## 3. Publicar en internet (Vercel)
 
 1. <https://vercel.com> → entra con GitHub → **Add New Project** → elige el repositorio.
-2. En **Environment Variables** pega las mismas variables de `.env.local` (cambia `NEXT_PUBLIC_SITE_URL` por la URL de Vercel).
+2. En **Environment Variables** pega las mismas variables de `.env.local`.
 3. **Deploy**. Cada cambio que se suba a GitHub se publica solo.
 
 ## 4. Pagos con Wompi

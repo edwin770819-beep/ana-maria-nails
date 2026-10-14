@@ -60,7 +60,8 @@ export async function POST(request: NextRequest) {
   });
   if (error) return NextResponse.json({ error: "No pudimos iniciar el pago" }, { status: 500 });
 
-  const origen = process.env.NEXT_PUBLIC_SITE_URL || request.nextUrl.origin;
+  // La app usa su propia dirección (localhost en el PC, vercel.app en internet)
+  const origen = request.nextUrl.origin;
   const url = urlCheckout({
     referencia,
     montoPesos: monto,
