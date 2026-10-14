@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+  Paleta Ana María Nail Atelier
+  crema (fondo) · rubor (rosa palo) · ciruela (color principal) · dorado (acentos)
+*/
+@theme {
+  --color-crema: #fbf7f4;
+  --color-marfil: #fffdfb;
+  --color-rubor-50: #fdf4f2;
+  --color-rubor-100: #f8e6e2;
+  --color-rubor-200: #f1d0ca;
+  --color-rubor-300: #e6b1aa;
+  --color-rubor-400: #d88d85;
+  --color-ciruela-50: #f7eef3;
+  --color-ciruela-100: #ecd7e2;
+  --color-ciruela-300: #b97c9c;
+  --color-ciruela-500: #8a3f66;
+  --color-ciruela-600: #74325a;
+  --color-ciruela-700: #5e2749;
+  --color-ciruela-800: #4a1e3a;
+  --color-ciruela-900: #321427;
+  --color-dorado-200: #ecdcbf;
+  --color-dorado-400: #d4b483;
+  --color-dorado-500: #c09a5e;
+  --color-dorado-600: #a37f45;
+  --color-tinta: #2a1d24;
+  --color-humo: #7d6c75;
+  --color-linea: #ecdfe0;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-titulo: var(--fuente-titulo), "Times New Roman", serif;
+  --font-sans: var(--fuente-texto), system-ui, sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --shadow-suave: 0 1px 2px rgb(74 30 58 / 0.04), 0 8px 24px -8px rgb(74 30 58 / 0.12);
+  --shadow-flotante: 0 18px 50px -12px rgb(74 30 58 / 0.28);
+
+  --animate-aparecer: aparecer 0.5s ease-out both;
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
   }
 }
 
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-crema);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+}
+
+/* Fondo decorativo suave para secciones destacadas */
+.fondo-satinado {
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgb(230 177 170 / 0.45), transparent 60%),
+    radial-gradient(900px 400px at -10% 10%, rgb(236 220 191 / 0.55), transparent 60%),
+    var(--color-crema);
+}
+
+.texto-dorado {
+  background: linear-gradient(100deg, var(--color-dorado-600), var(--color-dorado-400) 45%, var(--color-dorado-600));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Espacio para la barra inferior en celulares */
+.pb-barra {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}
+@media (min-width: 768px) {
+  .pb-barra {
+    padding-bottom: 0;
+  }
+}
+
+.sin-scrollbar {
+  scrollbar-width: none;
+}
+.sin-scrollbar::-webkit-scrollbar {
+  display: none;
 }
